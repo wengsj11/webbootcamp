@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <!-- 顶部导航栏 -->
     <nav class="l-top">
         <div class="l-container">
             <div class="o-logo-box">
@@ -38,9 +39,11 @@
             </div>
         </div>
     </nav>
+    <!-- 主体内容 -->
     <section class="l-content l-container">
+        <!-- 主体侧边栏 -->
         <nav class="l-sidebar">
-            <div class="o-sidebar__hd">
+            <header class="o-sidebar__hd">
                 <button class="o-btn o-back-btn">
                     <i class="o-icon o-icon--back"></i>
                     <span class="o-btn__txt">个人中心</span>
@@ -48,7 +51,7 @@
                 <button class="o-btn o-menu-btn">
                     <i class="o-icon o-icon--menu"></i>
                 </button>
-            </div>
+            </header>
             <ul class="c-menu__bd">
                 <li>
                     <a href="###" class="c-menu__item">其他内容</a>
@@ -64,77 +67,162 @@
                 </li>
             </ul>
         </nav>
-        <div class="l-main">
-            <div class="l-main__hd">
+        <section class="l-main">
+            <!-- 主体内容头部 -->
+            <header class="l-main__hd">
                 <div class="o-main__title">我的班级</div>
-                <div class="o-main-btns">
-                    <button class="o-btn o-main__btn">加入班级</button>
-                    <button class="o-btn o-main__btn">创建班级</button>
+                <div class="o-main-btns" id="main-btn-group1">
+                    <button class="o-btn o-main__btn" id="join-btn">加入班级</button>
+                    <button class="o-btn o-main__btn" id="create-btn">创建班级</button>
                 </div>
-            </div>
-            <div class="cl-content">
-                <div class="l-main__bd">
-                        <p class="cl-intro">行政班是为学生管理和教学管理而设置的班级</p>
-                        <div class="cl-list">
-                            <div class="cl-list-item">
-                                <img src="./images/class_work.png" alt="" class="cl-list-item__pic">
-                                <div class="cl-list-item__info">
-                                    高中-2013级<br>
-                                    班级：三年二班<br>
-                                    班主任：田小雨<br>
-                                    学生：32人
-                                </div>
-                                <div class="cl-tag">行政班</div>
-                            </div>
+                <div class="o-main-btns content-hide"  id="main-btn-group2">
+                    <button class="o-btn o-main__btn" id="back-btn">返回上一级</button>
+                </div>
+            </header>
+            <!-- 班级列表内容 -->
+            <section class="l-main__bd cl-content">
+                <p class="cl-intro">行政班是为学生管理和教学管理而设置的班级</p>
+                <div class="cl-list">
+                    <div class="cl-list-item">
+                        <img src="./images/class_work.png" alt="" class="cl-list-item__pic">
+                        <div class="cl-list-item__info">
+                            高中-2013级<br>
+                            班级：三年二班<br>
+                            班主任：田小雨<br>
+                            学生：32人
                         </div>
-                        <p class="cl-intro">教学班是根据课程教学要求而设置的班级</p>
-                        <div class="cl-list">
-                            <div class="cl-list-item">
-                                <img src="./images/class_crown.png" alt="" class="cl-list-item__pic">
-                                <div class="cl-list-item__info">
-                                        高中-2013级<br>
-                                        班级：三年二班<br>
-                                        班主任：田小雨<br>
-                                        学生：32人
-                                </div>
+                        <div class="cl-tag">行政班</div>
+                    </div>
+                </div>
+                <p class="cl-intro">教学班是根据课程教学要求而设置的班级</p>
+                <div class="cl-list">
+                    <div class="cl-list-item">
+                        <img src="./images/class_crown.png" alt="" class="cl-list-item__pic">
+                        <div class="cl-list-item__info">
+                            高中-2013级<br>
+                            班级：三年二班<br>
+                            班主任：田小雨<br>
+                            学生：32人
+                        </div>
+                    </div>
+                    <div class="cl-list-item">
+                        <img src="./images/class_normal.png" alt="" class="cl-list-item__pic">
+                        <div class="cl-list-item__info">
+                                高中-2013级<br>
+                                班级：三年二班<br>
+                                班主任：田小雨<br>
+                                学生：32人
                             </div>
-                            <div class="cl-list-item">
-                                <img src="./images/class_normal.png" alt="" class="cl-list-item__pic">
-                                <div class="cl-list-item__info">
-                                        高中-2013级<br>
-                                        班级：三年二班<br>
-                                        班主任：田小雨<br>
-                                        学生：32人
-                                </div>
+                            <div class="cl-tag">行政班</div>
+                        </div>
+                    <div class="cl-list-item">
+                        <img src="./images/class_normal.png" alt="" class="cl-list-item__pic">
+                        <div class="cl-list-item__info">
+                            高中-2013级<br>
+                                班级：三年二班<br>
+                                班主任：田小雨<br>
+                                学生：32人
                             </div>
-                            <div class="cl-list-item">
-                                <img src="./images/class_normal.png" alt="" class="cl-list-item__pic">
-                                <div class="cl-list-item__info">
-                                        高中-2013级<br>
-                                        班级：三年二班<br>
-                                        班主任：田小雨<br>
-                                        学生：32人
+                        <div class="cl-tag">行政班</div>
+                    </div>
+                </div>
+            </section>
+            <!-- 创建班级内容 -->
+            <section class="l-main__bd cr-content content-hide">
+                <div class="cr-title o-text">
+                尊敬的<span class="o-text--blue">老师（刘老师）</span>，请填写班级信息：
+                </div>
+                <form action class="c-form">
+                    <div class="c-form-item">
+                        <label for="school" class="c-form__label o-text">学校</label>
+                        <div class="c-form-input">
+                            <input type="text" class="c-input" name="school" placeholder="请选择学校">
+                        </div>
+                    </div>
+                    <div class="c-form-item">
+                        <label for="grade" class="c-form__label  o-text c-form__label--required">学段</label>
+                        <div class="c-form-input">
+                            <div class="c-select">
+                                <div class="c-select__title">
+                                    <input type="text" class="c-input" name="grade" placeholder="请选择学段" readonly required>
+                                    <i class="c-select__icon"></i>
                                 </div>
+                                <dl class="c-select-items" style="display: none;">
+                                    <dd data-value="0" class>小学</dd>
+                                    <dd data-value="1" class="c-select__this">初中</dd>
+                                    <dd data-value="2" class>高中</dd>
+                                    <dd data-value="3" class>大学</dd>
+                                </dl>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="cr-content" style="display:none;">
-                <div class="l-main__bd">
-                    <div class="cr-inform">
-                        尊敬的<span class="text--blue">老师（刘老师）</span>，请填写班级信息：
+                    <div class="c-form-item">
+                        <label for="year" class="c-form__label o-text label--required">年级</label>
+                        <div class="c-form-input">
+                            <div class="c-select c-select--selected">
+                                <div class="c-select__title">
+                                    <input type="text" class="c-input" name="year" placeholder="请选择年级" readonly required>
+                                    <i class="c-select__icon"></i>
+                                </div>
+                                <dl class="c-select-items">
+                                    <dd data-value="0" class>一年级</dd>
+                                    <dd data-value="0" class>二年级</dd>
+                                    <dd data-value="1" class="c-select__this">三年级</dd>
+                                </dl>
+                            </div>
+                        </div>
                     </div>
-                    form.
-                </div>
-            </div>
-            <div class="member-content" style="display:none;">
-                <div class="l-main__bd">
-                    div.l
-                </div>
-            </div>
-        </div>
+                    <div class="c-form-item">
+                        <label for="className" class="c-form__label o-text label--required">班级名</label>
+                        <div class="c-form-input">
+                            <input type="text" class="c-input" name="className" placeholder="请输入班级名称，限20个字符，不支持输入_和%">
+                        </div>
+                    </div>
+                    <div class="c-form-item">
+                        <label for="" class="c-form__label o-text">类型</label>
+                        <div class="c-form-input">
+                            <div class="c-radio c-radio--radioed">
+                                <i class="c-radio__icon"></i>
+                                <div>行政班</div>
+                            </div>
+                            <div class="c-radio">
+                                <i class="c-radio__icon"></i>
+                                <div>教学班</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-form-item">
+                        <label for="" class="c-form__label o-text">退出权限设置</label>
+                        <div class="c-form-input">
+                            <div class="c-radio c-radio--radioed">
+                                <i class="c-radio__icon"></i>
+                                <div>允许退出</div>
+                            </div>
+                            <div class="c-radio">
+                                <i class="c-radio__icon"></i>
+                                <div>通过班级管理员审核后退出</div>
+                            </div>
+                            <div class="c-radio">
+                                <i class="c-radio__icon"></i>
+                                <div>禁止退出</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-form-item">
+                        <div class="c-form-input">
+                            <button class="o-btn o-main__btn">保存</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+            <!-- 班级成员内容 -->
+            <section class="l-main__bd mem-content content-hide">
+                div.l
+            </section>
+        </section>
     </section>
+
+    <script type="text/javascript" src="./js/index.js" async></script>
 </body>
 
 </html>
