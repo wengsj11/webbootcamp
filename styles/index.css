@@ -46,6 +46,9 @@
     line-height: 57px;
     color: #333333;
 }
+.c-tab__item:hover {
+    color: #3ba8f0;
+}
 .ui-active .c-tab__item,.ui-active .c-menu__item {
     color: #3ba8f0;
 }
@@ -301,6 +304,7 @@
         left: 25%;
     }
 }
+/* 搜索组件 */
 .o-search {
     margin-left: 218px;
     position: absolute;
@@ -322,6 +326,7 @@
     height: 36px;
     /* background-color: #3ba8f0; */
     background-color: rgb(177, 177, 177);
+    cursor: pointer;
 }
 .o-icon--search--white {
     background: url('../images/search.png') 50% 50% no-repeat;
@@ -341,7 +346,7 @@
 }
 .mem-tab .ui-active {
     background: #fff;
-    color: #3ca 8f0;
+    color: #3ca8f0;
 }
 .mem-tab__item {
     width: 178px;
@@ -353,6 +358,9 @@
     text-align: center;
     line-height: 34px;
     cursor: pointer;
+}
+.mem-tab__item:hover {
+    color: #3ca8f0;
 }
 .mem-list__item {
     width: 135px;
@@ -448,6 +456,18 @@
     margin-right: 31px;
     text-align: right;
     display: block;
+    position: relative;
+}
+.label--required::before {
+    /* position: absolute; */
+    /* top: 50%; */
+    content: "*";
+    color: red;
+    padding-right: 11px;
+    padding-top: 2px;
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: middle;
 }
 .c-form-input {
     margin-left: 147px;
@@ -462,12 +482,31 @@
     padding-left: 10px;
     display: block;
     transition: 0.5s linear;
+    font-size: 14px;
+}
+input.c-input::-input-placeholder {
+    color: #bbbbbb;
 }
 .c-input:hover {
     border: 1px solid #d3baba;
 }
 .c-select .c-input {
     cursor: pointer;
+}
+.c-select input.c-input::-input-placeholder {
+    color: #666666;
+}
+.c-select input.c-input::-webkit-input-placeholder {
+    color: #666666;
+}
+.c-select input.c-input:-moz-placeholder {
+    color: #666666;
+}
+.c-select input.c-input:-moz-placeholder {
+    color: #666666;
+}
+.c-select input.c-input:-ms-input-placeholder {
+    color: #666666;
 }
 .c-select {
     position: relative;
@@ -490,6 +529,14 @@
     position: absolute;
     z-index: 99;
     animation: animSelectedItems 0.2s linear;
+    color: #666666;
+    font-size: 14px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.c-select-items dd:hover {
+    background-color: #e9e9e9;
+    color: #474747;
 }
 .c-select--selected .c-select-items dd {
     width: 392px;

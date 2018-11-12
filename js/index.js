@@ -45,17 +45,17 @@ for (let i = 0; i < selectInput.length; i++) {
         event.stopPropagation();
         let select = event.target.parentNode.parentNode;
         if (!selectDom) {
-            selectDom = select;
+            selectDom = event.target;
             select.classList.add('c-select--selected');
             return;
         } else {
-            selectDom.classList.remove('c-select--selected');
+            selectDom.parentNode.parentNode.classList.remove('c-select--selected');
         }
         // 判断点击的是同一个下拉框还是其他下拉框
-        if (select === selectDom) {
+        if (event.target === selectDom) {
             selectDom = null;
         } else {
-            selectDom = select;
+            selectDom = event.target;
             select.classList.add('c-select--selected');
         }
     }, false);
@@ -63,10 +63,18 @@ for (let i = 0; i < selectInput.length; i++) {
 //设置点击除下拉框外的元素触发隐藏
 document.body.addEventListener('click', (event) => {
     if (selectDom) {
-        selectDom.classList.remove('c-select--selected');
+        selectDom.parentNode.parentNode.classList.remove('c-select--selected');
         selectDom = null;
     }
 });
+// 下拉框点击选择
+let options = document.querySelectorAll('.c-select-items dd');
+for (let i = 0; i < options.length; i++) {
+    options[i].addEventListener('click', (event) => {
+        selectDom.value = event.target.innerHTML;
+    })
+}
+
 /* 单选框事件 */
 let radioInput = document.querySelectorAll('.c-radio');
 for (let i = 0; i < radioInput.length; i++) {
