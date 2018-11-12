@@ -283,6 +283,142 @@
     line-height: 20px;
 }
 /* 班级成员页面 */
+.l-mem__hd {
+    width: 100%;
+    height: 80px;
+    position: relative;
+}
+.mem-class-name {
+    font-size: 20px;
+    color: #333333;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+}
+/* 标题大于1200px显示居中，小于1200px置于最前面 */
+@media screen and (max-width:1200px) {
+    .mem-class-name{
+        left: 25%;
+    }
+}
+.o-search {
+    margin-left: 218px;
+    position: absolute;
+    top: 14px;
+    right: 0;
+}
+.o-search__input {
+    width: 250px;
+    height: 34px;
+    border: #3ba8f0 solid 1px;
+    display: block;
+    float: left;
+    padding-left: 10px;
+    color: #bbbbbb;
+    font-size: 14px;
+}
+.o-search .o-search-btn {
+    width: 48px;
+    height: 36px;
+    /* background-color: #3ba8f0; */
+    background-color: rgb(177, 177, 177);
+}
+.o-icon--search--white {
+    background: url('../images/search.png') 50% 50% no-repeat;
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+}
+.l-mem__bd {
+    width: 100%;
+    border: #dddddd 1px solid;
+    min-height: 695px;
+}
+.mem-tab {
+    height: 34px;
+    border-bottom: #dddddd solid 1px;
+    background-color: #f5f5f5;
+}
+.mem-tab .ui-active {
+    background: #fff;
+    color: #3ca 8f0;
+}
+.mem-tab__item {
+    width: 178px;
+    background-color: #f5f5f5;
+    color: #666666;
+    font-size: 14px;
+    border-right: #dddddd solid 1px;
+    display: inline-block;
+    text-align: center;
+    line-height: 34px;
+    cursor: pointer;
+}
+.mem-list__item {
+    width: 135px;
+    height: 149px;
+    border: #dddddd solid 1px;
+    position: relative;
+}
+.mem-item__pic {
+    width: 100%;
+    height: 114px;
+    position: relative;
+}
+.mem-item__pic span {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.mem-tag {
+    display: inline-block;
+    max-width: 71px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    color: #fefefe;
+    text-align: center;
+    line-height: 20px;
+    padding: 0 4px 0 6px;
+}
+.mem-item__pic .mem-tag--teacher:last-child {
+    background-color: #fa4b5b;
+}
+.mem-tag-box .mem-tag--teacher:first-child {
+    background-color: #f96543;
+}
+.mem-tag--teacher {
+    background-color: #f99d43;
+}
+.mem-item__pic .mem-tag--student:last-child {
+    background: #307efe;
+}
+.mem-tag--student {
+    background-color: #4f92ff;
+}
+.mem-tag--parent {
+    background-color: #5ab76e;
+}
+.mem-tag-box {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    height: 114px;
+    position: absolute;
+    z-index: 99;
+    top: 0;
+}
+/* .mem-item__pic:hover + .mem-tag-box{ */
+/* 以下选择器解决上一行hover闪烁问题 */
+.mem-item__pic:hover + .mem-tag-box, .mem-tag-box:hover{
+    display: block;
+}
+.mem-item__name {
+    height: 100%;
+    text-align: center;
+    /* display: inline-block; */
+}
 
 /* 创建班级表单 */
 .cr-title {
@@ -349,11 +485,11 @@
     background: #fff;
     border: 1px solid #ebebeb;
     border-radius: 3px;
-    box-shadow: #666666 50px;
+    box-shadow: 0 2px 20px #e4e4e4;
     margin-top: 5px;
     position: absolute;
     z-index: 99;
-    animation: animSelectedItems 0.5 linear;
+    animation: animSelectedItems 0.2s linear;
 }
 .c-select--selected .c-select-items dd {
     width: 392px;
@@ -364,7 +500,7 @@
 @keyframes animSelectedItems {
     from {
         opacity: .5;
-        transform: translateY(-30px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
@@ -378,15 +514,20 @@
     position: absolute;
     right: 15px;
     top: 16px;
+    transition-duration: 0.2s;
 }
 .c-select--selected .c-select__icon {
     transform-origin: 50% 25%;
     transform: rotate(180deg);
+    transform-origin: 50% 25%;
+    border-color: #219cee transparent transparent transparent;
+    /* 改用transform动画解决animation卡顿 */
+    /* animation: animSelectedIcon 0.2s linear; */
 }
-.c-select:active .c-select__icon {
+/* .c-select:active .c-select__icon {
     transform-origin: 50% 25%;
     animation: animSelectedIcon 0.5s linear forwards;
-}
+} */
 @keyframes animSelectedIcon {
     from {
         transform: rotate(0deg);
@@ -421,7 +562,7 @@
 .c-radio--radioed .c-radio__icon,.c-radio__icon:hover {
     border: 1px solid #3ba8f0;
 }
-.c-radio__icon:active, .c-radio:active .c-radio__icon {
+.c-radio--radioed .c-radio__icon {
     animation: animRadioed 0.5s;
 }
 @keyframes animRadioed{
@@ -448,5 +589,6 @@
 .c-form-input .c-btn {
     font-size: 14px;
 }
+
 
 

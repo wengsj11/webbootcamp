@@ -147,7 +147,7 @@
                                     <input type="text" class="c-input" name="grade" placeholder="请选择学段" readonly required>
                                     <i class="c-select__icon"></i>
                                 </div>
-                                <dl class="c-select-items" style="display: none;">
+                                <dl class="c-select-items">
                                     <dd data-value="0" class>小学</dd>
                                     <dd data-value="1" class="c-select__this">初中</dd>
                                     <dd data-value="2" class>高中</dd>
@@ -159,7 +159,7 @@
                     <div class="c-form-item">
                         <label for="year" class="c-form__label o-text label--required">年级</label>
                         <div class="c-form-input">
-                            <div class="c-select c-select--selected">
+                            <div class="c-select">
                                 <div class="c-select__title">
                                     <input type="text" class="c-input" name="year" placeholder="请选择年级" readonly required>
                                     <i class="c-select__icon"></i>
@@ -167,7 +167,7 @@
                                 <dl class="c-select-items">
                                     <dd data-value="0" class>一年级</dd>
                                     <dd data-value="0" class>二年级</dd>
-                                    <dd data-value="1" class="c-select__this">三年级</dd>
+                                    <dd data-value="1" class="c-select--this">三年级</dd>
                                 </dl>
                             </div>
                         </div>
@@ -217,7 +217,46 @@
             </section>
             <!-- 班级成员内容 -->
             <section class="l-main__bd mem-content content-hide">
-                div.l
+                <div class="l-mem__hd">
+                    <div class="mem-class-name">折纸兴趣班</div>
+                    <div class="o-search">
+                        <input type="text" class="o-search__input" placeholder="快捷查找">
+                        <button class="o-search-btn">
+                            <i class="o-icon o-icon--search--white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="l-mem__bd">
+                    <ul class="mem-tab">
+                        <li class="mem-tab__item ui-active">
+                            所有老师<span>（12）</span>
+                        </li>
+                        <li class="mem-tab__item">
+                            所有学生<span>（10）</span>
+                        </li>
+                        <li class="mem-tab__item">
+                            所有家长<span>（10）</span>
+                        </li>
+                    </ul>
+                    <div class="mem-list">
+                        <div class="mem-list__item">
+                            <div class="mem-item__pic">
+                                <img src="./images/teacher.png"></img>
+                                <span class="mem-tag mem-tag--teacher">生物老师</span>
+                                <span class="mem-tag mem-tag--teacher">班主任</span>
+                            </div>
+                            <div class="mem-tag-box">
+                                <span class="mem-tag mem-tag--teacher">班主任</span>
+                                <span class="mem-tag mem-tag--teacher">生物老师</span>
+                                <span class="mem-tag mem-tag--teacher">语文</span>
+                                <span class="mem-tag mem-tag--teacher">信息与技术</span>
+                                <span class="mem-tag mem-tag--teacher">地理</span>
+                                <span class="mem-tag mem-tag--teacher">历史</span>
+                            </div>
+                            <div class="mem-item__name">柳云</div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </section>
     </section>
