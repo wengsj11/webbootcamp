@@ -88,3 +88,39 @@ for (let i = 0; i < radioInput.length; i++) {
     },false)    
 }
 
+/* 班级成员选项卡事件 */
+let memberTabs = document.querySelectorAll('.mem-tab__item');
+let teacherList = document.querySelector('.mem-list--teacher')
+let studentList = document.querySelector('.mem-list--student')
+let parentList = document.querySelector('.mem-list--parent')
+
+// 老师选项卡
+memberTabs[0].onclick = () => {
+    for (let i = 0; i < memberTabs.length; i++) {
+        memberTabs[i].classList.remove('ui-active');
+    }
+    memberTabs[0].classList.add('ui-active');
+    teacherList.classList.remove('content-hide');
+    studentList.classList.add('content-hide');
+    parentList.classList.add('content-hide');
+}
+// 学生选项卡
+memberTabs[1].onclick = () => {
+    for (let i = 0; i < memberTabs.length; i++) {
+        memberTabs[i].classList.remove('ui-active');
+    }
+    memberTabs[1].classList.add('ui-active');
+    teacherList.classList.add('content-hide');
+    studentList.classList.remove('content-hide');
+    parentList.classList.add('content-hide');
+}
+// 家长选项卡
+memberTabs[2].onclick = () => {
+    for (let i = 0; i < memberTabs.length; i++) {
+        memberTabs[i].classList.remove('ui-active');
+    }
+    memberTabs[2].classList.add('ui-active');
+    teacherList.classList.add('content-hide');
+    studentList.classList.add('content-hide');
+    parentList.classList.remove('content-hide');
+}
