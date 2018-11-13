@@ -297,6 +297,11 @@
 }
 .cl-list-item__info {
     display: inline-block;
+    color: #999999;
+    font-size: 14px;
+}
+.cl-list-item__info span {
+    color: #333333;
 }
 .cl-tag {
     width: 56px;
