@@ -69,19 +69,20 @@
 .o-btn {
     cursor: pointer;
     outline: none;
+    background: #fff;
 }
 /* 搜索按钮 */
 .o-search-btn {
     width: 20px;
-    background-color: #fff;
-}
-.o-search-btn .o-icon {
-    display: block;
+    height: 100%;
 }
 .o-icon--search {
-    width: 20px;
-    height: 20px;
     background: url('../images/search.png') no-repeat 50% 50%;
+}
+.o-icon {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 .search-btn {
     width: 20px;
@@ -302,6 +303,16 @@
 }
 .cl-list-item__info span {
     color: #333333;
+}
+.o-setting-btn {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 15px;
+    top: 13px;
+}
+.o-icon--setting {
+    background: url('../images/setting.png') no-repeat 50% 50%;
 }
 .cl-tag {
     width: 56px;
