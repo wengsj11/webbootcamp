@@ -152,8 +152,8 @@
                         <label for="grade" class="c-form__label  o-text label--required">学段</label>
                         <div class="c-form-input">
                             <div class="c-select">
-                                <div class="c-select__title">
-                                    <input type="text" class="c-input" name="grade" placeholder="请选择学段" readonly required>
+                                <div class="c-select__title"><!-- onfocus="this.blur()"解决readonly和required冲突问题 -->
+                                    <input type="text" class="c-input" name="grade" placeholder="请选择学段" onfocus="this.blur()" required>
                                     <i class="c-select__icon"></i>
                                 </div>
                                 <dl class="c-select-items">
@@ -170,7 +170,7 @@
                         <div class="c-form-input">
                             <div class="c-select">
                                 <div class="c-select__title">
-                                    <input type="text" class="c-input" name="year" placeholder="请选择年级" readonly required>
+                                    <input type="text" class="c-input" name="year" placeholder="请选择年级" value="" onfocus="this.blur()" required>
                                     <i class="c-select__icon"></i>
                                 </div>
                                 <dl class="c-select-items">
@@ -197,6 +197,23 @@
                             <div class="c-radio">
                                 <i class="c-radio__icon"></i>
                                 <div class="o-text">教学班</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-form-item">
+                        <label for="" class="c-form__label o-text">多选框</label>
+                        <div class="c-form-input">
+                            <div class="c-checkbox c-checkbox--checked">
+                                <i class="c-checkbox__icon"></i>
+                                <div class="o-text">验证身份加入</div>
+                            </div>
+                            <div class="c-checkbox">
+                                <i class="c-checkbox__icon"></i>
+                                <div class="o-text">不验证身份加入</div>
+                            </div>
+                            <div class="c-checkbox">
+                                <i class="c-checkbox__icon"></i>
+                                <div class="o-text">不验证身份加入</div>
                             </div>
                         </div>
                     </div>
@@ -463,7 +480,10 @@
         </section>
     </section>
 
+    <!-- 主脚本 -->
     <script type="text/javascript" src="./js/index.js" async></script>
+    <!-- 自定义ui组件脚本 -->
+    <script type="text/javascript" src="./js/component.js"></script>
 </body>
 
 </html>
