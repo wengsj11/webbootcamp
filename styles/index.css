@@ -236,6 +236,7 @@
     margin-left: 34px; 
     width: 100%;
 }
+/* 主踢头部部分 */
 .l-main__hd {
     width: 100%;
     height: 49px;
@@ -361,11 +362,13 @@
     height: 20px;
     margin: 0 auto;
 }
+/* 班级成员列表主体 */
 .l-mem__bd {
     width: 100%;
     border: #dddddd 1px solid;
     min-height: 695px;
 }
+/* 班级成员选项卡 */
 .mem-tab {
     height: 34px;
     border-bottom: #dddddd solid 1px;
@@ -391,6 +394,7 @@
 .mem-tab__item:hover {
     color: #3ca8f0;
 }
+/* 每个班级成员列表子项 */
 .mem-list {
     padding-left: 30px;
 }
@@ -478,7 +482,7 @@
     font-size: 16px;
 }
 
-/* 创建班级表单 */
+/* 创建班级表单页面 */
 .cr-title {
     padding: 20px 0;
 }
@@ -489,12 +493,13 @@
 .o-text--blue {
     color: #3ba8f0;
 }
+/* 单个表单项 */
 .c-form-item {
     margin-bottom: 20px;
     white-space: nowrap;
 }
 .c-form-item::after {
-    /* 使用伪元素清除label浮动 */
+    /* 使用伪元素清除label元素浮动 */
     content: "";
     display: table;
     clear: both;
@@ -509,8 +514,6 @@
     position: relative;
 }
 .label--required::before {
-    /* position: absolute; */
-    /* top: 50%; */
     content: "*";
     color: red;
     padding-right: 11px;
@@ -541,6 +544,7 @@ input.c-input::-input-placeholder {
 .c-input:hover {
     border: 1px solid #d3baba;
 }
+/* 下拉框组件 */
 .c-select .c-input {
     cursor: pointer;
 }
@@ -638,7 +642,7 @@ input.c-input::-input-placeholder {
         border-color: #219cee transparent transparent transparent; 
     }
 }
-
+/* 单选框组件 */
 .c-radio {
     margin-right: 20px;
     cursor: pointer;
