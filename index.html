@@ -79,6 +79,12 @@
                     <button class="o-btn o-main__btn" id="back-btn">返回上一级</button>
                 </div>
             </header>
+			<!-- 未加入班级页面 -->
+            <section class="l-main__bd no-content">
+                <img src="./images/noclass.png" alt="未加入班级" class="no-content__pic">
+                <div class="no-content__txt">你还没有加入班级，请立即</div>
+                <button class="o-btn o-main__btn" id="join-btn">加入班级</button>
+            </section>
             <!-- 班级列表内容 -->
             <section class="l-main__bd cl-content content-hide">
                 <p class="cl-intro">行政班是为学生管理和教学管理而设置的班级</p>
@@ -129,12 +135,6 @@
                         <div class="cl-tag">行政班</div>
                     </div>
                 </div>
-            </section>
-            <!-- 未加入班级页面 -->
-            <section class="l-main__bd no-content">
-                <img src="./images/noclass.png" alt="未加入班级" class="no-content__pic">
-                <div class="no-content__txt">你还没有加入班级，请立即</div>
-                <button class="o-btn o-main__btn" id="join-btn">加入班级</button>
             </section>
             <!-- 创建班级内容 -->
             <section class="l-main__bd cr-content content-hide">
@@ -482,11 +482,13 @@
             </section>
         </section>
     </section>
-
+	<noscript>
+      You need to enable JavaScript to use this page.
+    </noscript>
     <!-- 主脚本 -->
     <script type="text/javascript" src="./js/index.js" async></script>
     <!-- 自定义ui组件脚本 -->
-    <script type="text/javascript" src="./js/component.js"></script>
+    <script type="text/javascript" src="./js/component.js" async></script>
 </body>
 
 </html>

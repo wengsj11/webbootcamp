@@ -39,9 +39,9 @@ backBtn.onclick = () => {
 
 /* 班级成员选项卡事件 */
 let memberTabs = document.querySelectorAll('.mem-tab__item');
-let teacherList = document.querySelector('.mem-list--teacher')
-let studentList = document.querySelector('.mem-list--student')
-let parentList = document.querySelector('.mem-list--parent')
+let teacherList = document.querySelector('.mem-list--teacher');
+let studentList = document.querySelector('.mem-list--student');
+let parentList = document.querySelector('.mem-list--parent');
 
 // 老师选项卡
 memberTabs[0].onclick = () => {
