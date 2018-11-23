@@ -3,7 +3,7 @@ html,
 body {
     height: 100%;
     /* font-size:62.5%; 设置1.6rem = 16px */
-    font-family: 'Microsoft YaHei', 'Courier New', Courier, monospace
+    font-family: 'Microsoft YaHei', 'Courier New', Courier, monospace;
 }
 
 body,

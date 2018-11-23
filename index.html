@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>福建省教育信息化统一平台</title>
+  <script src="./js/utils/jquery.min.js"></script>
   <link rel="stylesheet" href="./styles/reset.css">
   <link rel="stylesheet" href="./styles/index.css">
 </head>
@@ -80,68 +81,19 @@
                 </div>
             </header>
 			<!-- 未加入班级页面 -->
-            <section class="l-main__bd no-content">
+            <section class="l-main__bd no-content content-hide">
                 <img src="./images/noclass.png" alt="未加入班级" class="no-content__pic">
                 <div class="no-content__txt">你还没有加入班级，请立即</div>
                 <button class="o-btn o-main__btn" id="join-btn">加入班级</button>
             </section>
             <!-- 班级列表内容 -->
-            <section class="l-main__bd cl-content content-hide">
-                <p class="cl-intro">行政班是为学生管理和教学管理而设置的班级</p>
-                <div class="cl-list">
-                    <div class="cl-list-item">
-                        <img src="./images/class_work.png" alt="班级图片" class="cl-list-item__pic">
-                        <div class="cl-list-item__info">
-                            <span class="cl-item__grade">高中-2013级</span><br />
-                            班级：<span class="cl-item__classname">三年二班</span><br />
-                            班主任：<span class="cl-item__headteacher"><strong>田小雨</strong></span><br />
-                            学生：<span class="cl-item__student">32人</span>
-                        </div>
-                        <div class="cl-tag">行政班</div>
-                    </div>
-                </div>
-                <p class="cl-intro">教学班是根据课程教学要求而设置的班级</p>
-                <div class="cl-list">
-                    <div class="cl-list-item">
-                        <img src="./images/class_crown.png" alt="班级图片" class="cl-list-item__pic">
-                        <div class="cl-list-item__info">
-                            <span class="cl-item__grade">高中-2013级</span><br />
-                            班级：<span class="cl-item__classname">三年二班</span><br />
-                            班主任：<span class="cl-item__headteacher"><strong>田小雨</strong></span><br />
-                            学生：<span class="cl-item__student">32人</span>
-                        </div>
-                        <button class="o-setting-btn o-btn">
-                            <i class="o-icon o-icon--setting"></i>
-                        </button>
-                    </div>
-                    <div class="cl-list-item">
-                        <img src="./images/class_normal.png" alt="班级图片" class="cl-list-item__pic">
-                        <div class="cl-list-item__info">
-                            <span class="cl-item__grade">高中-2013级</span><br />
-                            班级：<span class="cl-item__classname">三年二班</span><br />
-                            班主任：<span class="cl-item__headteacher"><strong>田小雨</strong></span><br />
-                            学生：<span class="cl-item__student">32人</span>
-                        </div>
-                        <div class="cl-tag">行政班</div>
-                    </div>
-                    <div class="cl-list-item">
-                        <img src="./images/class_normal.png" alt="班级图片" class="cl-list-item__pic">
-                        <div class="cl-list-item__info">
-                            <span class="cl-item__grade">高中-2013级</span><br />
-                            班级：<span class="cl-item__classname">三年二班</span><br />
-                            班主任：<span class="cl-item__headteacher"><strong>田小雨</strong></span><br />
-                            学生：<span class="cl-item__student">32人</span>
-                        </div>
-                        <div class="cl-tag">行政班</div>
-                    </div>
-                </div>
-            </section>
+            <section class="l-main__bd cl-content content-hide"></section>
             <!-- 创建班级内容 -->
             <section class="l-main__bd cr-content content-hide">
                 <div class="cr-title o-text">
                 尊敬的<span class="o-text--blue">老师（刘老师）</span>，请填写班级信息：
                 </div>
-                <form action class="c-form">
+                <form action class="c-form" id="form">
                     <div class="c-form-item">
                         <label for="school" class="c-form__label o-text">学校</label>
                         <div class="c-form-input">
@@ -175,8 +127,8 @@
                                 </div>
                                 <dl class="c-select-items">
                                     <dd data-value="0" class>一年级</dd>
-                                    <dd data-value="0" class>二年级</dd>
-                                    <dd data-value="1" class="c-select--this">三年级</dd>
+                                    <dd data-value="1" class>二年级</dd>
+                                    <dd data-value="2" class="c-select--this">三年级</dd>
                                 </dl>
                             </div>
                         </div>
@@ -184,50 +136,58 @@
                     <div class="c-form-item">
                         <label for="className" class="c-form__label o-text label--required">班级名</label>
                         <div class="c-form-input">
-                            <input type="text" class="c-input" name="className" placeholder="请输入班级名称，限20个字符，不支持输入_和%" required maxlength="20">
+                            <input type="text" class="c-input" name="className" pattern="[^_%]{0,20}" placeholder="请输入班级名称，限20个字符，不支持输入_和%" required maxlength="20">
                         </div>
                     </div>
                     <div class="c-form-item">
                         <label for="" class="c-form__label o-text">类型</label>
                         <div class="c-form-input">
+                            <input type="radio" name="type" value="行政班" checked>
                             <div class="c-radio c-radio--radioed">
                                 <i class="c-radio__icon"></i>
                                 <div class="o-text">行政班</div>
                             </div>
+                            <input type="radio" name="type" value="教学班">
                             <div class="c-radio">
                                 <i class="c-radio__icon"></i>
                                 <div class="o-text">教学班</div>
                             </div>
                         </div>
                     </div>
-                    <div class="c-form-item">
+                    <!-- <div class="c-form-item">
                         <label for="" class="c-form__label o-text">多选框</label>
                         <div class="c-form-input">
+                            <input type="checkbox" name="permisson" value="验证身份加入">
                             <div class="c-checkbox c-checkbox--checked">
                                 <i class="c-checkbox__icon"></i>
                                 <div class="o-text">验证身份加入</div>
                             </div>
+                            <input type="checkbox" name="permisson" value="不验证身份加入">
                             <div class="c-checkbox">
                                 <i class="c-checkbox__icon"></i>
                                 <div class="o-text">不验证身份加入</div>
                             </div>
+                            <input type="checkbox" name="permisson" value="不验证身份加入">
                             <div class="c-checkbox">
                                 <i class="c-checkbox__icon"></i>
                                 <div class="o-text">不验证身份加入</div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="c-form-item">
                         <label for="" class="c-form__label o-text">退出权限设置</label>
                         <div class="c-form-input">
+                            <input type="radio" name="permisson" value="允许退出" checked>
                             <div class="c-radio c-radio--radioed">
                                 <i class="c-radio__icon"></i>
                                 <div class="o-text">允许退出</div>
                             </div>
+                            <input type="radio" name="permisson" value="通过班级管理员审核后退出">
                             <div class="c-radio">
                                 <i class="c-radio__icon"></i>
                                 <div class="o-text">通过班级管理员审核后退出</div>
                             </div>
+                            <input type="radio" name="permisson" value="禁止退出">
                             <div class="c-radio">
                                 <i class="c-radio__icon"></i>
                                 <div class="o-text">禁止退出</div>
@@ -236,7 +196,7 @@
                     </div>
                     <div class="c-form-item">
                         <div class="c-form-input">
-                            <button class="o-btn o-main__btn">保存</button>
+                            <button class="o-btn o-main__btn" type="submit" form="form">保存</button>
                         </div>
                     </div>
                 </form>
@@ -244,7 +204,7 @@
             <!-- 班级成员内容 -->
             <section class="l-main__bd mem-content content-hide">
                 <div class="l-mem__hd">
-                    <div class="mem-class-name">折纸兴趣班</div>
+                    <div class="mem-class-name">暂无班级信息</div>
                     <div class="o-search">
                         <input type="text" class="o-search__input" placeholder="快捷查找">
                         <button class="o-search-btn">
@@ -254,230 +214,11 @@
                 </div>
                 <div class="l-mem__bd">
                     <ul class="mem-tab">
-                        <li class="mem-tab__item ui-active">
-                            所有老师<span>（12）</span>
-                        </li>
-                        <li class="mem-tab__item">
-                            所有学生<span>（10）</span>
-                        </li>
-                        <li class="mem-tab__item">
-                            所有家长<span>（10）</span>
-                        </li>
+                        <li class="mem-tab__item">所有老师（0）</li>
+                        <li class="mem-tab__item">所有学生（0）</li>
+                        <li class="mem-tab__item">所有家长（0）</li>
                     </ul>
-                    <div class="mem-list mem-list--teacher">
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                                <div class="mem-tag-box">
-                                    <span class="mem-tag mem-tag--headteacher">班主任</span>
-                                    <span class="mem-tag mem-tag--teacher">生物老师</span>
-                                    <span class="mem-tag mem-tag--teacher">语文</span>
-                                    <span class="mem-tag mem-tag--teacher">信息与技术</span>
-                                    <span class="mem-tag mem-tag--teacher">地理</span>
-                                    <span class="mem-tag mem-tag--teacher">地理</span>
-                                    <span class="mem-tag mem-tag--teacher">历史</span>
-                                    <span class="mem-tag mem-tag--teacher">语文</span>
-                                    <span class="mem-tag mem-tag--teacher">信息与技术</span>
-                                    <span class="mem-tag mem-tag--teacher">语文</span>
-                                    <span class="mem-tag mem-tag--teacher">信息与技术</span>
-                                    <span class="mem-tag mem-tag--teacher">信息与技术</span>
-                                </div>
-                            </div>
-                            <div class="mem-item__name"><strong>柳云</strong></div>
-                        </div>
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                                <div class="mem-tag-box">
-                                    <span class="mem-tag mem-tag--admin">管理员</span>
-                                    <span class="mem-tag mem-tag--teacher">英语老师</span>
-                                </div>
-                            </div>
-                            <div class="mem-item__name"><strong>柳云</strong></div>
-                        </div>
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                                <div class="mem-tag-box">
-                                    <span class="mem-tag mem-tag--teacher">生物老师</span>
-                                </div>
-                            </div>
-                            <div class="mem-item__name"><strong>柳云</strong></div>
-                        </div>
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                                <div class="mem-tag-box">
-                                    <span class="mem-tag mem-tag--teacher">语文老师</span>
-                                </div>
-                            </div>
-                            <div class="mem-item__name"><strong>张三三</strong></div>
-                        </div>
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                                <div class="mem-tag-box">
-                                    <span class="mem-tag mem-tag--teacher">生物老师</span>
-                                </div>
-                            </div>
-                            <div class="mem-item__name"><strong>李思思</strong></div>
-                        </div>
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                                <div class="mem-tag-box">
-                                    <span class="mem-tag mem-tag--teacher">生物老师</span>
-                                </div>
-                            </div>
-                            <div class="mem-item__name"><strong>柳云</strong></div>
-                        </div>
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                                <div class="mem-tag-box">
-                                    <span class="mem-tag mem-tag--teacher">生物老师</span>
-                                </div>
-                            </div>
-                            <div class="mem-item__name"><strong>柳云</strong></div>
-                        </div>
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                                <div class="mem-tag-box">
-                                    <span class="mem-tag mem-tag--headteacher">班主任</span>
-                                    <span class="mem-tag mem-tag--teacher">生物老师</span>
-                                    <span class="mem-tag mem-tag--teacher">语文</span>
-                                    <span class="mem-tag mem-tag--teacher">信息与技术</span>
-                                    <span class="mem-tag mem-tag--teacher">地理</span>
-                                    <span class="mem-tag mem-tag--teacher">历史</span>
-                                </div>
-                            </div>
-                            <div class="mem-item__name"><strong>柳云</strong></div>
-                        </div>
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                                <div class="mem-tag-box">
-                                    <span class="mem-tag mem-tag--admin">管理员</span>
-                                    <span class="mem-tag mem-tag--teacher">生物老师</span>
-                                    <span class="mem-tag mem-tag--teacher">语文</span>
-                                    <span class="mem-tag mem-tag--teacher">信息与技术</span>
-                                    <span class="mem-tag mem-tag--teacher">地理</span>
-                                    <span class="mem-tag mem-tag--teacher">历史</span>
-                                </div>
-                            </div>
-                            <div class="mem-item__name"><strong>柳云</strong></div>
-                        </div>
-                    </div>
-                    <div class="mem-list mem-list--student content-hide">
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                                <div class="mem-tag-box">
-                                    <span class="mem-tag mem-tag--moniter">班长</span>
-                                    <span class="mem-tag mem-tag--student">生物课代表</span>
-                                </div>
-                            </div>
-                            <div class="mem-item__name"><strong>柳云</strong></div>
-                        </div>
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                                <div class="mem-tag-box">
-                                    <span class="mem-tag mem-tag--student">数学课代表</span>
-                                </div>
-                            </div>
-                            <div class="mem-item__name"><strong>柳云</strong></div>
-                        </div>
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                                <div class="mem-tag-box">
-                                    <span class="mem-tag mem-tag--student" title="信息技术课代表">信息技术课代表</span>
-                                </div>
-                            </div>
-                            <div class="mem-item__name"><strong>柳云</strong></div>
-                        </div>
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                            </div>
-                            <div class="mem-item__name"><strong>张三三</strong></div>
-                        </div>
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                            </div>
-                            <div class="mem-item__name"><strong>李思思</strong></div>
-                        </div>
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                            </div>
-                            <div class="mem-item__name"><strong>柳云</strong></div>
-                        </div>
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                            </div>
-                            <div class="mem-item__name"><strong>柳云</strong></div>
-                        </div>
-                    </div>
-                    <div class="mem-list mem-list--parent content-hide">
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                                <div class="mem-tag-box">
-                                    <span class="mem-tag mem-tag--parent">大明</span>
-                                    <span class="mem-tag mem-tag--parent">大明</span>
-                                    <span class="mem-tag mem-tag--parent">大明</span>
-                                </div>
-                            </div>
-                            <div class="mem-item__name"><strong>柳云</strong></div>
-                        </div>
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                                <div class="mem-tag-box">
-                                    <span class="mem-tag mem-tag--parent">小明</span>
-                                </div>
-                            </div>
-                            <div class="mem-item__name"><strong>柳云</strong></div>
-                        </div>
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                                <div class="mem-tag-box">
-                                    <span class="mem-tag mem-tag--parent" title="周柳西子爸爸">周柳西子爸爸</span>
-                                </div>
-                            </div>
-                            <div class="mem-item__name"><strong>柳云</strong></div>
-                        </div>
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                            </div>
-                            <div class="mem-item__name"><strong>张三三</strong></div>
-                        </div>
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                            </div>
-                            <div class="mem-item__name"><strong>李思思</strong></div>
-                        </div>
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                            </div>
-                            <div class="mem-item__name"><strong>柳云</strong></div>
-                        </div>
-                        <div class="mem-list__item">
-                            <div class="mem-item__pic">
-                                <img src="./images/teacher.png"></img>
-                            </div>
-                            <div class="mem-item__name"><strong>柳云</strong></div>
-                        </div>
-                    </div>
+                    <div class="mem-list"></div>
                 </div>
             </section>
         </section>
@@ -486,9 +227,19 @@
       You need to enable JavaScript to use this page.
     </noscript>
     <!-- 主脚本 -->
-    <script type="text/javascript" src="./js/index.js" async></script>
+    <script type="text/javascript" src="./js/sys/index.js" async></script>
+    <!-- 配置脚本 -->
+    <script type="text/javascript" src="./js/sys/config.js" async></script>
+    <!-- 班级列表数据 -->
+    <script type="text/javascript" src="./js/func/list.js" async></script>
+    <!-- 班级成员数据 -->
+    <script type="text/javascript" src="./js/func/member.js" async></script>
+    <!-- 表单脚本 -->
+    <script type="text/javascript" src="./js/func/create.js" async></script>
+    <!-- 中文转拼音脚本 -->
+    <script type="text/javascript" src="./js/utils/chinese2pinyin.js" defer></script>
     <!-- 自定义ui组件脚本 -->
-    <script type="text/javascript" src="./js/component.js" async></script>
+    <script type="text/javascript" src="./js/sys/component.js" async></script>
 </body>
 
 </html>

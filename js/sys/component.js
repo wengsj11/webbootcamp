@@ -1,6 +1,6 @@
 /* 
  *  ui-component script.
- *  ui组件事件脚本
+ *  表单ui组件事件脚本
  *
 */
 
@@ -43,26 +43,29 @@ for (let i = 0; i < options.length; i++) {
 }
 
 /* 单选框事件 */
-let radioInput = document.querySelectorAll('.c-radio');
-for (let i = 0; i < radioInput.length; i++) {
-    radioInput[i].addEventListener('click', (event) => {
+let radios = document.querySelectorAll('.c-radio');
+for (let i = 0; i < radios.length; i++) {
+    radios[i].addEventListener('click', (event) => {
         // debugger;
-        let radios = event.currentTarget.parentNode.childNodes;
-        for (let i = 0; i < radios.length; i++) {
-            radios[i].classList && radios[i].classList.remove('c-radio--radioed');
+        let radioed = event.currentTarget;
+        let siblings = event.currentTarget.parentNode.childNodes;
+        for (let i = 0; i < siblings.length; i++) {
+            siblings[i].classList && siblings[i].classList.remove('c-radio--radioed');
         }
-        event.currentTarget.classList.add('c-radio--radioed');
-    },false)    
+        radioed.classList.add('c-radio--radioed');
+        radioed.previousSibling.previousSibling.checked = true;
+    }, false);
 }
 /* 多选框事件 */
-let checkboxInput = document.querySelectorAll('.c-checkbox');
-for (let i = 0; i < checkboxInput.length; i++) {
-    checkboxInput[i].addEventListener('click', (event) => {
-        let checkbox = event.currentTarget;
-        if (checkbox.classList.contains('c-checkbox--checked')) {
-            checkbox.classList.remove('c-checkbox--checked');
+let checkbox = document.querySelectorAll('.c-checkbox');
+for (let i = 0; i < checkbox.length; i++) {
+    checkbox[i].addEventListener('click', (event) => {
+        let checked = event.currentTarget;
+        if (checked.classList.contains('c-checkbox--checked')) {
+            checked.classList.remove('c-checkbox--checked');
         } else {
-            checkbox.classList.add('c-checkbox--checked');
+            checked.classList.add('c-checkbox--checked');
+            checked.previousSibling.previousSibling.checked = true;
         }
     },false);
 }
