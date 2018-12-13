@@ -1,0 +1,5 @@
+{
+    "scripts": {
+        "mock": "cd mock/ && json-server data.json -p 3003"
+    }
+}

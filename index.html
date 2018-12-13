@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>福建省教育信息化统一平台</title>
+  <script src="./js/utils/jquery.min.js"></script>
+  <link rel="stylesheet" href="./styles/reset.css">
+  <link rel="stylesheet" href="./styles/index.css">
+</head>
+
+<body>
+    <!-- 顶部导航栏 -->
+    <nav class="l-top">
+        <div class="l-container">
+            <div class="o-logo-box">
+                <a href="###" title="福建省教育信息化统一平台" class="o-logo"></a>
+            </div>
+            <ul class="c-tab">
+                <li><a href="###" class="c-tab__item">首页</a></li>
+                <li class="ui-active"><a href="###" class="c-tab__item">教学管理</a></li>
+                <li><a href="###" class="c-tab__item">学习</a></li>
+                <li><a href="###" class="c-tab__item">资源超市</a></li>
+                <li><a href="###" class="c-tab__item">教育应用</a></li>
+                <li><a href="###" class="c-tab__item">新闻</a></li>
+                <li><a href="###" class="c-tab__item">名师名校</a></li>
+            </ul>
+            <div class="new-btn-box">
+                <a href="###" class="new-btn">新功能</a>
+            </div>
+            <button class="o-btn o-search-btn">
+                <i class="o-icon o-icon--search"></i>
+            </button>
+            <div class="user-info">
+                <div class="user-info__pic">
+                </div>
+                <span class="user-info__name">Coco</span>
+            </div>
+        </div>
+    </nav>
+    <!-- 主体内容 -->
+    <section class="l-content l-container">
+        <!-- 主体侧边栏 -->
+        <aside class="l-sidebar">
+            <header class="o-sidebar__hd">
+                <button class="o-btn o-back-btn">
+                    <i class="o-icon o-icon--back"></i>
+                    <span class="o-btn__txt">个人中心</span>
+                </button>
+                <button class="o-btn o-menu-btn">
+                    <i class="o-icon o-icon--menu"></i>
+                </button>
+            </header>
+            <ul class="c-menu__bd">
+                <li>
+                    <a href="###" class="c-menu__item">其他内容</a>
+                </li>
+                <li>
+                    <a href="###" class="c-menu__item">其他内容</a>
+                </li>
+                <li class="ui-active">
+                    <a href="###" class="c-menu__item">我的班级</a>
+                </li>
+                <li>
+                    <a href="###" class="c-menu__item">其他内容</a>
+                </li>
+            </ul>
+        </aside>
+        <section class="l-main">
+            <!-- 主体内容头部 -->
+            <header class="l-main__hd">
+                <div class="o-main__title">我的班级</div>
+                <div class="o-main-btns">
+                    <button class="o-btn o-main__btn" id="join-btn">加入班级</button>
+                    <button class="o-btn o-main__btn" id="create-btn">创建班级</button>
+                </div>
+                <div class="o-main-btns content-hide">
+                    <button class="o-btn o-main__btn" id="back-btn">返回上一级</button>
+                </div>
+            </header>
+            <!-- loader -->
+            <section class="l-main__bd no-content">
+                <span class="loading"></span>
+            </section>
+			<!-- 未加入班级页面 -->
+            <section class="l-main__bd no-content content-hide">
+                <img src="./images/noclass.png" alt="未加入班级" class="no-content__pic">
+                <div class="no-content__txt">你还没有加入班级，请立即</div>
+                <button class="o-btn o-main__btn" id="join-btn">加入班级</button>
+            </section>
+            <!-- 班级列表内容 -->
+            <section class="l-main__bd cl-content content-hide"></section>
+            <!-- 创建班级内容 -->
+            <section class="l-main__bd cr-content content-hide">
+                <div class="cr-title o-text">
+                尊敬的<span class="o-text--blue">老师（刘老师）</span>，请填写班级信息：
+                </div>
+                <form action class="c-form" id="form">
+                    <div class="c-form-item">
+                        <label for="school" class="c-form__label o-text">学校</label>
+                        <div class="c-form-input">
+                            <input type="text" class="c-input" name="school" placeholder="请选择学校">
+                        </div>
+                    </div>
+                    <div class="c-form-item">
+                        <label for="grade" class="c-form__label  o-text label--required">学段</label>
+                        <div class="c-form-input">
+                            <div class="c-select">
+                                <div class="c-select__title"><!-- onfocus="this.blur()"解决readonly和required冲突问题 -->
+                                    <input type="text" class="c-input" name="grade" placeholder="请选择学段" onfocus="this.blur()" required>
+                                    <i class="c-select__icon"></i>
+                                </div>
+                                <dl class="c-select-items">
+                                    <dd data-value="0">小学</dd>
+                                    <dd data-value="1">初中</dd>
+                                    <dd data-value="2">高中</dd>
+                                    <dd data-value="3">大学</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-form-item">
+                        <label for="year" class="c-form__label o-text label--required">年级</label>
+                        <div class="c-form-input">
+                            <div class="c-select">
+                                <div class="c-select__title">
+                                    <input type="text" class="c-input" name="year" placeholder="请选择年级" value="" onfocus="this.blur()" required>
+                                    <i class="c-select__icon"></i>
+                                </div>
+                                <dl class="c-select-items">
+                                    <dd data-value="0" class>一年级</dd>
+                                    <dd data-value="1" class>二年级</dd>
+                                    <dd data-value="2" class="c-select--this">三年级</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-form-item">
+                        <label for="className" class="c-form__label o-text label--required">班级名</label>
+                        <div class="c-form-input">
+                            <input type="text" class="c-input" name="className" placeholder="请输入班级名称，限20个字符，不支持输入_和%" required maxlength="20">
+                        </div>
+                    </div>
+                    <div class="c-form-item">
+                        <label for="" class="c-form__label o-text">类型</label>
+                        <div class="c-form-input">
+                            <input type="radio" name="type" value="行政班" checked>
+                            <div class="c-radio c-radio--radioed">
+                                <i class="c-radio__icon"></i>
+                                <div class="o-text">行政班</div>
+                            </div>
+                            <input type="radio" name="type" value="教学班">
+                            <div class="c-radio">
+                                <i class="c-radio__icon"></i>
+                                <div class="o-text">教学班</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="c-form-item">
+                        <label for="" class="c-form__label o-text">多选框</label>
+                        <div class="c-form-input">
+                            <input type="checkbox" name="permisson" value="验证身份加入">
+                            <div class="c-checkbox c-checkbox--checked">
+                                <i class="c-checkbox__icon"></i>
+                                <div class="o-text">验证身份加入</div>
+                            </div>
+                            <input type="checkbox" name="permisson" value="不验证身份加入">
+                            <div class="c-checkbox">
+                                <i class="c-checkbox__icon"></i>
+                                <div class="o-text">不验证身份加入</div>
+                            </div>
+                            <input type="checkbox" name="permisson" value="不验证身份加入">
+                            <div class="c-checkbox">
+                                <i class="c-checkbox__icon"></i>
+                                <div class="o-text">不验证身份加入</div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="c-form-item">
+                        <label for="" class="c-form__label o-text">退出权限设置</label>
+                        <div class="c-form-input">
+                            <input type="radio" name="permisson" value="允许退出" checked>
+                            <div class="c-radio c-radio--radioed">
+                                <i class="c-radio__icon"></i>
+                                <div class="o-text">允许退出</div>
+                            </div>
+                            <input type="radio" name="permisson" value="通过班级管理员审核后退出">
+                            <div class="c-radio">
+                                <i class="c-radio__icon"></i>
+                                <div class="o-text">通过班级管理员审核后退出</div>
+                            </div>
+                            <input type="radio" name="permisson" value="禁止退出">
+                            <div class="c-radio">
+                                <i class="c-radio__icon"></i>
+                                <div class="o-text">禁止退出</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-form-item">
+                        <div class="c-form-input">
+                            <button class="o-btn o-main__btn" type="submit" form="form">保存</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+            <!-- 班级成员内容 -->
+            <section class="l-main__bd mem-content content-hide">
+                <div class="l-mem__hd">
+                    <div class="mem-class-name">暂无班级信息</div>
+                    <div class="o-search">
+                        <input type="text" class="o-search__input" placeholder="快捷查找">
+                        <button class="o-search-btn">
+                            <i class="o-icon o-icon--search--white"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="l-mem__bd">
+                    <ul class="mem-tab">
+                        <li class="mem-tab__item">所有老师（0）</li>
+                        <li class="mem-tab__item">所有学生（0）</li>
+                        <li class="mem-tab__item">所有家长（0）</li>
+                    </ul>
+                    <div class="mem-list"></div>
+                </div>
+            </section>
+        </section>
+    </section>
+    <!-- noscript notes -->
+	<noscript>You need to enable JavaScript to use this page. </noscript>
+    <!-- 主脚本 -->
+    <script type="text/javascript" src="./js/sys/index.js" async></script>
+    <!-- 配置脚本 -->
+    <script type="text/javascript" src="./js/sys/config.js" async></script>
+    <!-- 班级列表数据 -->
+    <script type="text/javascript" src="./js/func/list.js" async></script>
+    <!-- 班级成员数据 -->
+    <script type="text/javascript" src="./js/func/member.js" async></script>
+    <!-- 表单脚本 -->
+    <script type="text/javascript" src="./js/func/create.js" async></script>
+    <!-- 中文转拼音脚本 -->
+    <script type="text/javascript" src="./js/utils/chinese2pinyin.js" defer></script>
+    <!-- 自定义ui组件脚本 -->
+    <script type="text/javascript" src="./js/sys/component.js" async></script>
+</body>
+
+</html>
